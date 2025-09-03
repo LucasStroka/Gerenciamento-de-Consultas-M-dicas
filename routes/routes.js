@@ -10,7 +10,7 @@ const doctor = require('../controllers/doctor')
 // • POST /consulta - Adicionar consulta
 
 router.post('/doctor/', doctor.createMedic)
-
+router.post('/paciente/', patient.createPaciente)
 
 
 // • GET /medicos - Listar médicos
@@ -18,7 +18,7 @@ router.post('/doctor/', doctor.createMedic)
 // • GET /consultas - Listar consultas
 
 router.get('/doctor/', doctor.getMedic)
-
+router.get('/paciente/', patient.getPaciente)
 
 
 
@@ -27,6 +27,7 @@ router.get('/doctor/', doctor.getMedic)
 // • PUT /consulta/:id - Atualizar consulta
 
 router.put('/doctor/:id', doctor.updateMedic)
+router.put('/paciente/:id', patient.updatePaciente)
 
 
 
@@ -35,7 +36,7 @@ router.put('/doctor/:id', doctor.updateMedic)
 // • DELETE /consulta/:id - Remover consulta
 
 router.delete('/doctor/:id', doctor.deleteMedic)
-
+router.delete('/paciente/:id', patient.deletePaciente)
 
 
 // • GET /medicos?nome=João - Buscar médico por nome

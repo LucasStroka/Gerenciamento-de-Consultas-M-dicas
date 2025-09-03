@@ -54,8 +54,11 @@ const getMedic = (req, res) => {
 const deleteMedic = (req, res) => {
   const { id } = req.params;
 
-  let idIndex = medico.findIndex((p) => p.id === id);
+  let idIndex = medico.findIndex(p => p.id == id);
   if (idIndex === -1) return res.status(404).json({ "ID Not Found": "ID Not Found" });
+  
+  medico.splice(idIndex, 1)
+  res.status(200).json({"Deleted ID": id})
 };
 
 module.exports = {
