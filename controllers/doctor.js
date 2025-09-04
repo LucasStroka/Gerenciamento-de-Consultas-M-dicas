@@ -6,7 +6,7 @@
 // {
 //     "nomeMedico": "MedicoExemplo",
 //     "especialidade": "NeuroCirurgião"
-// } 
+// }
 
 let { medico, idMedico } = require("../data/data");
 
@@ -20,7 +20,7 @@ const createMedic = (req, res) => {
   const newMedic = {
     id: idMedico++,
     nomeMedico,
-    especialidade
+    especialidade,
   };
 
   medico.push(newMedic);
@@ -34,9 +34,10 @@ const updateMedic = (req, res) => {
   if (!nomeMedico || !especialidade)
     return res.status(404).json({ error: "missing body" });
 
-  let idIndex = medico.findIndex(p => p.id == id);
-  if (idIndex == -1) return res.status(404).json({ "ID Not Found": "ID Not Found" });
-    
+  let idIndex = medico.findIndex((p) => p.id == id);
+  if (idIndex == -1)
+    return res.status(404).json({ "ID Not Found": "ID Not Found" });
+
   const updateMedic = {
     id: parseInt(id),
     nomeMedico,
@@ -54,16 +55,17 @@ const getMedic = (req, res) => {
 const deleteMedic = (req, res) => {
   const { id } = req.params;
 
-  let idIndex = medico.findIndex(p => p.id == id);
-  if (idIndex === -1) return res.status(404).json({ "ID Not Found": "ID Not Found" });
-  
-  medico.splice(idIndex, 1)
-  res.status(200).json({"Deleted ID": id})
+  let idIndex = medico.findIndex((p) => p.id == id);
+  if (idIndex === -1)
+    return res.status(404).json({ "ID Not Found": "ID Not Found" });
+
+  medico.splice(idIndex, 1);
+  res.status(200).json({ "Deleted ID": id });
 };
 
 module.exports = {
   createMedic,
   updateMedic,
   getMedic,
-  deleteMedic
+  deleteMedic,
 };

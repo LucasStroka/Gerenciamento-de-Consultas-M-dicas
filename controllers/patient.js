@@ -3,6 +3,11 @@
 // nome
 // dataNascimento
 
+//   {
+//    "nome" : "NomeExemplo",
+//    "dataNascimento" : "03/06/2005"
+//   }
+
 let { paciente, idPaciente } = require("../data/data");
 let { dateConverter } = require("./dateController");
 
@@ -11,10 +16,7 @@ const createPaciente = (req, res) => {
 
   if (!nome || !dataNascimento)
     res.status(404).json({ "Missing Body": "Missing Body" });
-  //   {
-  //    "nome" : "NomeExemplo",
-  //    "dataNascimento" : "03/06/2005"
-  //   }
+
   const newPacient = {
     id: idPaciente++,
     nome,
